@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import WordCountResult
+from utils import WordCounter
 
-word_counter = WordCountResult()  # Создаем экземпляр WordCounter
+word_counter = WordCounter()  # Создаем экземпляр WordCounter
 
 
 # Создаем функцию для обработки запроса к приложению
@@ -15,7 +15,7 @@ def load_file(request):
     if request.method == 'POST' and request.FILES['file']:
         file = request.FILES['file']
         # Далее можно сохранить файл и передать его содержимое в нашу WordCounter
-        word_counter.load_file_from_text(file.read().decode('utf-8'))
+        word_counter.load_file(file.read().decode('utf-8'))
         return HttpResponse("Файл успешно загружен.")
     else:
         return HttpResponse("Загрузка файла не удалась.")
