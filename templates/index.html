@@ -2,27 +2,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Word Counter Service</title>
+    <title>Служба счетчика слов</title>
 </head>
 <body>
-    <h2>Upload a file</h2>
-    <form method="post" enctype="multipart/form-data" action="{% url 'load_file'%}">
-        {% csrf_token %}
-        <input type="file" name="file">
-        <input type="submit" value="Upload">
-    </form>
+<h2>Загрузить файл</h2>
+<form method="post" enctype="multipart/form-data" action="{% url 'load_file' %}">
+    {% csrf_token %}
+    <input type="file" name="file">
+    <input type="submit" value="Upload">
+</form>
 
-    <h2>Word Count</h2>
-    <form method="post" action="{% url 'word_count'%}">
-        {% csrf_token %}
-        <input type="text" name="word">
-        <input type="submit" value="Count">
-    </form>
+<h2>Количество слов</h2>
+<form method="post" action="{% url 'word_count' %}">
+    {% csrf_token %}
+    <input type="text" name="word">
+    <input type="submit" value="Count">
+</form>
 
-    <h2>Clear Memory</h2>
-    <form method="post" action="{% url 'clear_memory'%}">
-        {% csrf_token %}
-        <input type="submit" value="Clear">
-    </form>
+<h2>Очистить память</h2>
+<form method="post" action="{% url 'clear_memory' %}">
+    {% csrf_token %}
+    <input type="submit" value="Clear">
+</form>
 </body>
 </html>
