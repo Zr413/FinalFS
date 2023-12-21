@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from utils import WordCounter
+from .utils import WordCounter
 
 word_counter = WordCounter()  # Создаем экземпляр WordCounter
 
